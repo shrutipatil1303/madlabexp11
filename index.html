@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{mytitle}}</title>
+    
+</head>
+<style>
+    h1 , p{
+        background-color: yellow;
+    }
+</style>
+<body>
+    {{bodydata}}
+    <h1>Shruti Rajkumar Patil {{mytitle}} </h1>
+    <p>Shruti Rajkumar Patil </p>
+    <p>Shruti Rajkumar Patil </p>
+    <h3>{{Shruti}}</h3>
+    <h3>{{Sahil}}</h3>
+    <h3>{{Rajkumar}}</h3>
+    <h3>{{Ruchita}}</h3>
+    {{Courses}}
+  {% for c in Courses %}
+  <!-- <div><b> {{forloop.counter}} . {{c}}</b></div> -->
+  <!-- <div><b> {{forloop.counter0}} . {{c}}</b></div> -->
+  <!-- <div><b> {{forloop.revcounter}} . {{c}}</b></div> -->
+  <!-- <div><b> {{forloop.revcounter0}} . {{c}}</b></div> -->
+  <div><b> {{forloop.parentloop}} . {{c}}</b></div>
+  <!-- <div><b> {{forloop.first}} . {{c}}</b></div> -->
+  <!-- <div><b> {{forloop.last}} . {{c}}</b></div> -->
+  {% endfor %}
+<br>
+  {% for c in Courses reversed %}
+  <div><b> {{forloop.counter}} . {{c}}</b></div>
+  <!-- <div><b> {{forloop.counter0}} . {{c}}</b></div> -->
+  {% endfor %}
+
+  {{Employee_Details}}
+  <br>
+  <br>
+
+  <table border="1" cellpadding="10" cellspacing="0">
+      <tr>
+          <th>Employee Name</th>
+          <th>Mobile Number</th>
+          <th>Location</th>
+      </tr>
+      {% for d in Employee_Details %}
+      <tr>
+          <!-- <td>{{forloop.counter}} {d.Name}</td>
+          <td>{{forloop.counter}} {d.Mobile}</td>
+          <td>{{forloop.counter}}{d.Location}</td> -->
+          <td> {{d.Name}}</td>
+          <td> {{d.Mobile}}</td>
+          <td>{{d.Location}}</td>
+      </tr>
+      {% endfor %}
+  </table>
+{{Ages}}
+<br>
+<br>
+<h3>List of Employees above 30 years old </h3>
+  {% for a in Ages %}
+  {% if a > 30 %}
+  <div>{{a}}</div>
+  {% endif %}
+  {% endfor %}
+
+
+<h3>Last Employee Name from all </h3>
+
+  {% for emp in Employee_Details %}
+ {% if forloop.last %}
+ <div>{{emp.Name}}</div>
+ {% endif %}
+
+ {% endfor %}
+
+ <h3>First Employee Name from all </h3>
+
+  {% for emp in Employee_Details %}
+ {% if forloop.first %}
+ <div>{{emp.Name}}</div>
+ {% endif %}
+
+ {% endfor %}
+
+ <span> <b> Current Date and Time is :- {{DateTime}}</b> </h3>
+    <div>{{age}}</div>
+    <div>{{age.Shruti}}</div>
+    <div>{{age.Sahil}}</div>
+    <div>{{age.Rajkumar}}</div>
+    <div>{{age.Ruchita}}</div>
+    
+</body>
+</html>
